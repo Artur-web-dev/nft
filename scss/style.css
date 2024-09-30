@@ -1,0 +1,1462 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.cdnfonts.com/css/canela-text-trial");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Jost:ital,wght@0,100..900;1,100..900&display=swap");
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  position: relative;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+  width: 100%;
+  max-width: 100vw;
+  padding: 0;
+  background-color: #090f1d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input {
+  border: none;
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+}
+input:-webkit-autofill {
+  box-shadow: 0 0 0 30px rgba(255, 255, 255, 0) inset !important;
+}
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+textarea,
+input,
+button:focus {
+  outline: none;
+}
+
+button {
+  font-size: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+  font-family: inherit;
+  color: inherit;
+}
+
+ul,
+li {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+textarea {
+  color: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  border: none;
+  resize: none;
+}
+
+.container {
+  max-width: 1290px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.blur-hero__effect {
+  border-radius: 1000px;
+  filter: blur(170px);
+  width: 631px;
+  background-color: #1f413d;
+  height: 458px;
+  position: absolute;
+  top: 30%;
+  right: 20%;
+}
+.blur-hero__effect_text {
+  border-radius: 1000px;
+  filter: blur(80px);
+  width: 352px;
+  height: 221px;
+  background-color: #1a2652;
+  position: absolute;
+  bottom: -6%;
+  right: 5%;
+}
+
+.blur-unique__effect {
+  border-radius: 1000px;
+  filter: blur(90px);
+  width: 434px;
+  height: 305px;
+  position: absolute;
+  bottom: -10%;
+  z-index: 1;
+  right: 0;
+  background-color: #1f413d;
+}
+
+.blur-create__effect {
+  border-radius: 1000px;
+  filter: blur(90px);
+  width: 346px;
+  height: 180px;
+  position: absolute;
+  background-color: #1f413d;
+  right: 5%;
+  bottom: -30%;
+  z-index: -10;
+}
+.blur-create__effect_left {
+  position: absolute;
+  left: -10%;
+  background-color: #1a2652;
+  filter: blur(100px);
+  opacity: 0.4;
+  width: 270px;
+  height: 200px;
+  bottom: -40%;
+  z-index: 1;
+}
+
+.blur-update__effect {
+  filter: blur(130px);
+  position: absolute;
+  width: 513px;
+  height: 358px;
+  background-color: #1f413d;
+  border-radius: 1000px;
+  left: -10%;
+  top: -30%;
+}
+.blur-update__effect_bottom {
+  background-color: #1a2652;
+  width: 345px;
+  height: 100px;
+  position: absolute;
+  border-radius: 1000px;
+  filter: blur(100px);
+  bottom: -10%;
+  left: 9%;
+}
+
+.burger-menu {
+  display: none;
+  margin-right: 25px;
+}
+.burger-menu__img {
+  width: 35px;
+  display: block;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.popup.active {
+  opacity: 1;
+  visibility: visible;
+}
+.popup.active .popup-menu__body {
+  transform: translateX(0);
+  transition: transform 0.3s ease;
+}
+.popup-menu__close {
+  position: absolute;
+  width: 25px;
+  display: block;
+  top: 10px;
+  right: 10px;
+}
+.popup-menu__close img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.popup-menu__body {
+  padding: 50px 90px 80px 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+.popup-menu__link {
+  font-size: 22px;
+  color: rgba(255, 255, 253, 0.72);
+  font-family: "Inter";
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+}
+.popup-menu__list {
+  display: flex;
+  gap: 25px 0;
+  flex-direction: column;
+}
+.popup__body {
+  background-color: #090f1d;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+.popup__bg {
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.header {
+  padding-top: 45px;
+}
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-menu {
+  display: flex;
+  gap: 0 40px;
+}
+.header-menu__text {
+  font-size: 16px;
+  font-family: "Inter";
+  color: rgba(255, 255, 253, 0.72);
+  border-bottom: 1px solid transparent;
+  transition: border-bottom 0.3s ease;
+}
+.header-menu__text:hover {
+  border-bottom: 1px solid #fffffd;
+}
+.header__link {
+  background-color: #d6ef0e;
+  color: #fff;
+  font-size: 16px;
+  font-family: "Inter";
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 15px 40px 15px 40px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.header__link:hover {
+  background-color: transparent;
+  border: 1px solid #d6ef0e;
+  padding: 14px 39px 14px 39px;
+  color: #d6ef0e;
+}
+
+.hero {
+  position: relative;
+  padding-top: 110px;
+}
+.hero__title {
+  font-family: "Canela Text Trial";
+  max-width: 544px;
+  font-size: 64px;
+  font-weight: 500;
+  color: #fff;
+  line-height: 1.2em;
+  margin-bottom: 30px;
+}
+.hero__title span {
+  color: #d6ef0e;
+}
+.hero__animation {
+  position: absolute;
+  left: -67px;
+  bottom: 35%;
+  overflow: hidden;
+}
+.hero__star {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+}
+.hero__text {
+  font-size: 16px;
+  font-family: "Inter";
+  line-height: 1.6em;
+  color: #fffffd;
+  max-width: 544px;
+  margin-bottom: 40px;
+}
+.hero-box {
+  display: flex;
+  gap: 0 36px;
+  align-items: center;
+}
+.hero-box__link {
+  color: #fff;
+  font-size: 16px;
+  font-family: "Inter";
+  font-weight: 700;
+  border-bottom: 1px solid transparent;
+  transition: border-bottom 0.3s ease;
+}
+.hero-box__link:hover {
+  border-bottom: 1px solid #fff;
+}
+.hero-box__link_active {
+  background-color: #d6ef0e;
+  color: #fff;
+  font-size: 16px;
+  font-family: "Inter";
+  font-weight: 700;
+  padding: 18px 40px 18px 40px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.hero-box__link_active:hover {
+  background-color: transparent;
+  border: 1px solid #d6ef0e;
+  color: #d6ef0e;
+  padding: 17.5px 39px 17.5px 39px;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 72px;
+  gap: 0 100px;
+}
+.hero-grid__line {
+  border: 1px solid #d6ef0e;
+  height: 97px;
+  position: absolute;
+  bottom: 0px;
+  left: 60%;
+}
+.hero-grid__line_active {
+  left: 124px;
+}
+.hero-grid__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100px;
+}
+.hero-grid__number {
+  color: #d6ef0e;
+  font-size: 48px;
+  font-family: "Canela Trial";
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+.hero-grid__number span {
+  color: #fff;
+}
+.hero-grid__text {
+  color: #fffffd;
+  font-size: 16px;
+  font-family: "Inter";
+  letter-spacing: 1px;
+}
+.hero__left {
+  position: relative;
+}
+.hero__img {
+  width: 464px;
+  height: 544px;
+  border-radius: 24px;
+}
+.hero__inner {
+  display: flex;
+  gap: 0 240px;
+}
+.hero__circle {
+  animation: rotate 10s linear infinite;
+  transform-origin: center center;
+  display: block;
+}
+.hero__bid {
+  background-color: #131e3a;
+  max-width: 304px;
+  width: 100%;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 -1px 0 #d6ef0e;
+  letter-spacing: 1px;
+  height: 169px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px 0;
+  position: absolute;
+  bottom: -20px;
+  right: -35px;
+}
+.hero-menu {
+  display: flex;
+  justify-content: space-between;
+}
+.hero-menu__item {
+  display: flex;
+  gap: 8px 0;
+  flex-direction: column;
+}
+.hero-menu__number {
+  color: #fffffd;
+  font-size: 16px;
+  font-family: "Inter";
+  font-weight: 700;
+}
+.hero-menu__text {
+  color: #d6ef0e;
+  font-size: 16px;
+  font-family: "Inter";
+}
+.hero__right {
+  position: relative;
+}
+.hero__btn {
+  border-radius: 8px;
+  border: 1px solid #d6ef0e;
+  color: #d6ef0e;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: "Inter";
+  padding: 17px 78px 17px 88px;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+.hero__btn:hover {
+  color: #fffffd;
+  background-color: #d6ef0e;
+}
+
+.unique {
+  padding-top: 200px;
+  position: relative;
+  display: flex;
+}
+.unique__btn {
+  background-color: #d6ef0e;
+  color: #fff;
+  padding: 18px 40px 18px 40px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: "Inter";
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.unique__btn:hover {
+  background-color: transparent;
+  border: 1px solid #d6ef0e;
+  color: #d6ef0e;
+  padding: 17px 39px 17px 39px;
+}
+.unique__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+.unique__title {
+  font-size: 48px;
+  font-family: "Canela Trial";
+  font-weight: 500;
+  color: #fff;
+  max-width: 506px;
+}
+.unique__title span {
+  color: #d6ef0e;
+}
+.unique-cost {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+.unique-cost__number {
+  font-size: 16px;
+  font-family: "Inter";
+  color: #fffffd;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+}
+.unique-cost__text {
+  font-size: 24px;
+  font-family: "Inter";
+  color: #fffffd;
+  font-weight: 700;
+}
+.unique-cost__img {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+.unique-bid {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 18px;
+  align-items: center;
+}
+.unique-bid__img {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+.unique-bid__text {
+  color: #838382;
+  font-size: 14px;
+  font-family: "Inter";
+  margin-bottom: 5px;
+}
+.unique-bid__time {
+  color: #fffffd;
+  font-weight: 700;
+  font-size: 16px;
+  font-family: "Inter";
+  display: flex;
+  align-items: center;
+}
+.unique-bid__btn {
+  border: 1px solid #d6ef0e;
+  border-radius: 8px;
+  color: #d6ef0e;
+  font-size: 16px;
+  font-family: "Inter";
+  font-weight: 700;
+  padding: 14px 39px 14px 39px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.unique-bid__btn:hover {
+  background-color: #d6ef0e;
+  border: 1px solid #d6ef0e;
+  color: #fffffd;
+}
+.unique-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0 30px;
+  margin-top: 64px;
+  z-index: 3;
+}
+.unique-grid__item {
+  background-color: #131e3a;
+  border-radius: 28px;
+  padding: 20px 20px 20px 20px;
+  z-index: 5;
+  box-shadow: 0 -1px 0 #d6ef0e;
+}
+.unique-grid__img {
+  width: 370px;
+  height: 340px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 16px;
+}
+
+.create {
+  padding-top: 270px;
+  position: relative;
+  z-index: 5;
+}
+.create__inner {
+  display: flex;
+  justify-content: space-between;
+}
+.create__left {
+  display: flex;
+  gap: 40px 0;
+  flex-direction: column;
+}
+.create__right {
+  position: relative;
+}
+.create__img {
+  width: 410px;
+  height: 400px;
+  position: absolute;
+  border-radius: 24px;
+  right: 320px;
+  top: 40px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.create__img_active {
+  height: 475px;
+  right: 0;
+  top: -100px;
+}
+.create__title {
+  font-size: 48px;
+  font-family: "Canela Trial";
+  font-weight: 500;
+  color: #fff;
+  max-width: 400px;
+  line-height: 1.2em;
+}
+.create__title span {
+  color: #d6ef0e;
+}
+.create__text {
+  color: #fffffd;
+  font-size: 16px;
+  font-family: "Inter";
+  max-width: 426px;
+  line-height: 1.6em;
+}
+.create__box {
+  display: flex;
+  gap: 0 36px;
+  align-items: center;
+}
+.create__link {
+  font-size: 16px;
+  font-weight: 700;
+  font-family: "Inter";
+  color: #fffffd;
+  transition: border-bottom 0.3s ease;
+  border-bottom: 1px solid transparent;
+}
+.create__link:hover {
+  border-bottom: 1px solid #fff;
+}
+.create__link_active {
+  background-color: #d6ef0e;
+  padding: 17px 40px 17px 40px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border: 1px solid transparent;
+}
+.create__link_active:hover {
+  background-color: transparent;
+  border: 1px solid #d6ef0e;
+  color: #d6ef0e;
+}
+
+.artists {
+  padding-top: 350px;
+}
+.artists__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.artists__btn {
+  background-color: #d6ef0e;
+  color: #fff;
+  padding: 17px 40px 17px 40px;
+  border-radius: 8px;
+  font-family: "Inter";
+  font-size: 16px;
+  font-weight: 700;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border: 1px solid transparent;
+}
+.artists__btn:hover {
+  background-color: transparent;
+  border: 1px solid #d6ef0e;
+  color: #d6ef0e;
+}
+.artists__title {
+  max-width: 307px;
+  color: #fff;
+  font-size: 48px;
+  font-family: "Canela Trial";
+  font-weight: 500;
+  line-height: 1.2em;
+}
+.artists__title span {
+  color: #d6ef0e;
+}
+.artists__inner {
+  display: flex;
+  flex-direction: column;
+}
+.artists-sheet {
+  display: grid;
+  padding-top: 64px;
+  grid-template-columns: 305px 512px 410px;
+  grid-template-rows: 315px;
+  gap: 30px 30px;
+}
+.artists-sheet__shadow {
+  box-shadow: inset 0 -60px 30px rgba(19, 30, 58, 0.92);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.artists-sheet__item {
+  position: relative;
+  z-index: 3;
+  display: inline-block;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #131e3a;
+}
+.artists-sheet__item:hover {
+  border: 1px solid #fffffd;
+}
+.artists-sheet__item_first {
+  width: 300px;
+  height: 311px;
+  box-shadow: inset 0 -60px 30px rgba(19, 30, 58, 0.92);
+}
+.artists-sheet__item_second {
+  width: 512px;
+  height: 311px;
+}
+.artists-sheet__item_third {
+  width: 410px;
+  height: 652px;
+}
+.artists-sheet__item_fourth {
+  width: 410px;
+  height: 311px;
+}
+.artists-sheet__item_fifth {
+  width: 410px;
+  height: 311px;
+  margin-left: 20%;
+}
+.artists-sheet__profile {
+  display: flex;
+  flex-direction: row;
+  gap: 0 12px;
+  align-items: center;
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  z-index: 2;
+}
+.artists-sheet__img {
+  border-radius: 16px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}
+.artists-sheet__pic {
+  width: 48px;
+  height: 48px;
+}
+.artists-sheet__owner {
+  font-size: 14px;
+  font-family: "Inter";
+  color: #fffffd;
+  margin-bottom: 6px;
+}
+.artists-sheet__name {
+  font-size: 16px;
+  font-weight: 700;
+  font-family: "Inter";
+  color: #fffffd;
+}
+
+.update {
+  padding-top: 200px;
+  position: relative;
+}
+.update__title {
+  font-size: 48px;
+  color: #fffffd;
+  font-family: "Canela Trial";
+  line-height: 1.2em;
+  font-weight: 500;
+  max-width: 500px;
+}
+.update__title span {
+  color: #d6ef0e;
+}
+.update__text {
+  font-size: 16px;
+  font-family: "Inter";
+  line-height: 1.6em;
+  color: #fffffd;
+  max-width: 520px;
+}
+.update__input {
+  background-color: #131e3a;
+  font-size: 16px;
+  font-family: "Inter";
+  color: rgba(255, 255, 253, 0.72);
+  padding: 21px 0 21px 24px;
+  border-radius: 8px;
+  padding-right: 50%;
+  width: 100%;
+}
+.update__email {
+  position: relative;
+  width: 100%;
+}
+.update__btn {
+  background-color: #d6ef0e;
+  color: #fff;
+  font-size: 16px;
+  font-family: "Inter";
+  font-weight: 700;
+  padding: 17px 40px 17px 40px;
+  border-radius: 8px;
+  position: absolute;
+  right: 3px;
+  top: 3px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border: 1px solid transparent;
+}
+.update__btn:hover {
+  background-color: transparent;
+  border: 1px solid #d6ef0e;
+  color: #d6ef0e;
+}
+.update__img {
+  height: 348px;
+  width: 282px;
+  position: absolute;
+  left: 23.3%;
+  top: 10%;
+}
+.update__img_green {
+  width: 410px;
+  height: 376px;
+  position: relative;
+  top: -30px;
+}
+.update__inner {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+}
+.update__box {
+  display: flex;
+  flex-direction: column;
+  gap: 40px 0;
+}
+
+.footer {
+  padding-top: 180px;
+  padding-bottom: 70px;
+}
+.footer-socials {
+  display: flex;
+  flex-direction: row;
+  gap: 0 12px;
+}
+.footer-socials__img:hover .change-bg__fill {
+  fill: #d6ef0e;
+}
+.footer .change-bg__fill {
+  fill: #fff;
+  transition: fill 0.3s ease;
+}
+.footer__line {
+  width: 100%;
+  max-width: 1290px;
+  display: block;
+  margin-top: 48px;
+  border: 1px solid #838382;
+  margin-bottom: 50px;
+}
+.footer-privacy {
+  display: flex;
+  flex-direction: row;
+  gap: 0 28px;
+  justify-content: end;
+}
+.footer-privacy__text {
+  color: #fffffd;
+  font-size: 16px;
+  font-family: "Inter";
+}
+.footer-privacy__text:hover {
+  text-decoration: underline;
+}
+.footer__copy {
+  font-size: 16px;
+  font-family: "Inter";
+  color: #fffffd;
+}
+.footer__left {
+  display: flex;
+  flex-direction: column;
+  gap: 24px 0;
+  margin-top: 24px;
+}
+.footer__text {
+  font-size: 16px;
+  font-family: "Inter";
+  color: #fffffd;
+  line-height: 1.6em;
+  max-width: 272px;
+}
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer__inner {
+  display: flex;
+  justify-content: space-between;
+}
+.footer__main {
+  display: flex;
+  justify-content: space-between;
+  gap: 0 94px;
+}
+.footer-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px 0;
+}
+.footer-menu__title {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: "Inter";
+  color: #fff;
+  margin-bottom: 16px;
+}
+.footer-menu__text {
+  font-size: 16px;
+  font-family: "Inter";
+  color: #fffffd;
+}
+.footer-menu__text:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 1300px) {
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .blur-hero__effect {
+    top: 58%;
+    right: 40%;
+  }
+  .hero__inner {
+    display: block;
+  }
+  .hero-grid {
+    gap: 0 88px;
+  }
+  .hero-grid__line {
+    left: 56%;
+  }
+  .hero-grid__line_active {
+    left: 41.3%;
+  }
+  .hero__left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero__title {
+    font-size: 50px;
+    max-width: 600px;
+  }
+  .hero__text {
+    max-width: 600px;
+  }
+  .hero-box {
+    max-width: 600px;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .hero__right {
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+  }
+  .hero__animation {
+    left: 16%;
+  }
+  .hero__bid {
+    left: 48%;
+  }
+  .unique {
+    padding-top: 170px;
+  }
+  .unique-grid {
+    gap: 40px 40px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    justify-content: center;
+    align-items: center;
+  }
+  .unique-grid__img {
+    width: 100%;
+    height: 400px;
+  }
+  .unique-grid__item_active {
+    grid-row: 2/3;
+    grid-column: 1/3;
+    justify-self: center;
+  }
+  .unique__top {
+    align-items: center;
+  }
+  .create__img {
+    width: 300px;
+    height: 300px;
+    right: 130px;
+    top: 115px;
+  }
+  .create__img_active {
+    height: 350px;
+    right: 0;
+    top: -80px;
+  }
+  .blur-create__effect {
+    right: 3%;
+    bottom: -30%;
+  }
+  .blur-unique__effect {
+    right: 2%;
+    bottom: 15%;
+  }
+  .artists {
+    padding-top: 270px;
+  }
+  .artists__top {
+    justify-content: center;
+    gap: 0 40%;
+  }
+  .artists-sheet {
+    gap: 30px 20px;
+    justify-content: center;
+    grid-template-columns: 305px 512px;
+    position: relative;
+  }
+  .artists-sheet__item_fourth {
+    margin-left: 20%;
+  }
+  .artists-sheet__item_fifth {
+    margin-left: 0;
+    position: absolute;
+    bottom: 0;
+    right: 61px;
+  }
+  .update__img {
+    height: 328px;
+    width: 249px;
+    left: 14.3%;
+    top: 49%;
+  }
+  .update__img_green {
+    width: 385px;
+    height: 348px;
+  }
+  .footer {
+    padding-top: 280px;
+    padding-bottom: 50px;
+  }
+  .footer__line {
+    margin-bottom: 30px;
+  }
+  .footer__left {
+    margin-top: 0;
+  }
+  .footer__main {
+    gap: 0 70px;
+  }
+}
+@media (max-width: 1000px) {
+  .hero-grid__line {
+    left: 59%;
+  }
+  .hero-grid__line_active {
+    left: 38%;
+  }
+  .unique-grid__img {
+    height: 300px;
+  }
+  .unique-cost__text {
+    font-size: 20px;
+  }
+  .create__text {
+    max-width: 300px;
+  }
+  .create__box {
+    gap: 0 26px;
+  }
+  .create__img {
+    width: 254px;
+    right: 46px;
+    height: 280px;
+  }
+  .create__img_active {
+    right: 0;
+  }
+  .artists-sheet {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .artists-sheet__item_second {
+    display: none;
+  }
+  .artists-sheet__item_third {
+    display: none;
+    visibility: hidden;
+  }
+  .artists-sheet__item_fourth {
+    order: 2;
+    margin-left: 0;
+  }
+  .artists-sheet__item_fifth {
+    order: 4;
+    position: inherit;
+    right: 0;
+  }
+  .artists__top {
+    gap: 0 30%;
+  }
+  .blur-update__effect {
+    width: 280px;
+  }
+  .update__title {
+    font-size: 37px;
+  }
+  .update__img {
+    height: 279px;
+    width: 218px;
+    left: 13.3%;
+    top: 55%;
+  }
+  .update__img_green {
+    width: 385px;
+    height: 348px;
+    left: -20px;
+  }
+  .update__text {
+    max-width: 300px;
+  }
+  .update__btn {
+    padding: 17px 32px 17px 32px;
+    right: 7px;
+  }
+  .update__input {
+    padding-right: 33%;
+  }
+  .footer__text {
+    width: 230px;
+  }
+  .footer__main {
+    gap: 0 19px;
+  }
+}
+@media (max-width: 768px) {
+  .burger-menu {
+    display: block;
+  }
+  .hero__animation {
+    left: -2%;
+    bottom: 24%;
+  }
+  .hero__bid {
+    left: 41%;
+  }
+  .hero__title {
+    font-size: 40px;
+  }
+  .hero-grid__line {
+    left: 61%;
+  }
+  .hero-grid__line_active {
+    left: 33%;
+  }
+  .unique__title {
+    font-size: 40px;
+    max-width: 330px;
+  }
+  .unique-grid {
+    display: flex;
+    flex-direction: column;
+  }
+  .create {
+    padding-top: 150px;
+  }
+  .create__inner {
+    display: flex;
+    justify-content: center;
+  }
+  .create__left {
+    align-items: center;
+  }
+  .create__title {
+    font-size: 40px;
+    text-align: center;
+  }
+  .create__box {
+    gap: 0 110px;
+  }
+  .create__img {
+    right: 174px;
+    top: 132%;
+  }
+  .create__img_active {
+    top: 113%;
+    right: -31px;
+  }
+  .blur-create__effect {
+    right: 5%;
+    bottom: -56%;
+  }
+  .artists {
+    padding-top: 80%;
+  }
+  .artists__title {
+    font-size: 40px;
+  }
+  .artists__top {
+    gap: 0 16%;
+  }
+  .header-menu {
+    display: none;
+    visibility: hidden;
+  }
+  .update {
+    padding-top: 200px;
+  }
+  .update__box {
+    z-index: 2;
+  }
+  .update__input {
+    padding-right: 52%;
+  }
+  .update__img {
+    left: 49.3%;
+    top: 130%;
+  }
+  .update__img_green {
+    position: absolute;
+    left: 5px;
+    top: 105%;
+  }
+  .footer {
+    padding-top: 80%;
+  }
+  .footer__inner {
+    flex-direction: column;
+    gap: 50px 0;
+  }
+}
+@media (max-width: 576px) {
+  .header {
+    padding-top: 25px;
+  }
+  .header__link {
+    padding: 15px 25px 15px 25px;
+  }
+  .blur-hero__effect_text {
+    z-index: -2;
+  }
+  .blur-hero__effect {
+    z-index: -3;
+  }
+  .blur-create__effect {
+    bottom: -37%;
+  }
+  .hero {
+    padding-top: 60px;
+  }
+  .hero__title {
+    font-size: 32px;
+  }
+  .hero__img {
+    width: 280px;
+    height: 350px;
+    z-index: 0;
+  }
+  .hero__animation {
+    width: 140px;
+    height: 140px;
+    left: 0;
+    bottom: 77%;
+  }
+  .hero__right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero__star {
+    width: 25px;
+    height: 25px;
+  }
+  .hero__circle {
+    width: 140px;
+    height: 140px;
+  }
+  .hero__bid {
+    left: auto;
+    right: auto;
+    bottom: -30%;
+  }
+  .hero__btn {
+    padding: 17px 40px 17px 70px;
+  }
+  .hero-grid {
+    gap: 0 5px;
+    grid-template-columns: 90px 90px 90px;
+  }
+  .hero-grid__line {
+    display: none;
+  }
+  .hero-grid__line_active {
+    display: none;
+  }
+  .hero-grid__number {
+    font-size: 32px;
+  }
+  .hero-box {
+    max-width: 280px;
+  }
+  .hero-box__link_active {
+    padding: 18px 25px 18px 25px;
+  }
+  .unique {
+    padding-top: 200px;
+  }
+  .unique-bid__btn {
+    padding: 15px 15px 15px 15px;
+  }
+  .unique-grid__img {
+    height: 250px;
+  }
+  .unique__title {
+    font-size: 32px;
+    max-width: 250px;
+  }
+  .unique__top {
+    flex-direction: column;
+    gap: 30px 0;
+    justify-content: center;
+    text-align: center;
+  }
+  .create {
+    padding-top: 120px;
+  }
+  .create__title {
+    font-size: 32px;
+  }
+  .create__text {
+    text-align: center;
+  }
+  .create__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px 0;
+  }
+  .create__img {
+    right: 13px;
+    top: 112%;
+    position: static;
+  }
+  .create__img_active {
+    display: none;
+  }
+  .create__box {
+    gap: 0 20px;
+    align-items: center;
+  }
+  .create__link {
+    padding: 17px 20px 17px 20px;
+  }
+  .create__link_active {
+    padding: 17px 20px 17px 20px;
+  }
+  .artists {
+    padding-top: 13%;
+  }
+  .artists__title {
+    font-size: 32px;
+  }
+  .artists__top {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px 0;
+    z-index: 5;
+  }
+  .artists-sheet__item_fourth {
+    width: 300px;
+  }
+  .artists-sheet__item_fifth {
+    width: 300px;
+  }
+  .blur-update__effect_bottom {
+    width: 270px;
+  }
+  .update {
+    padding-top: 130px;
+  }
+  .update__btn {
+    padding: 15px;
+    right: 2%;
+    top: 10%;
+    padding: 15px;
+  }
+  .update__img {
+    display: none;
+  }
+  .update__img_green {
+    display: none;
+  }
+  .update__input {
+    padding-right: 10%;
+  }
+  .footer {
+    padding-top: 30%;
+  }
+  .footer__main {
+    flex-direction: column;
+    gap: 30px 0;
+  }
+}/*# sourceMappingURL=style.css.map */
